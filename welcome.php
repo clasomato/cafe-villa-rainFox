@@ -30,16 +30,51 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </p>
 
     <script>
-      var button1 = document.getElementById("changeQuoteButton");
-
-
-      button1.onclick = function() {
-        var newQuote = prompt("What is the new quote?")
-      }
+      // var button1 = document.getElementById("changeQuoteButton");
+      //
+      //
+      // button1.onclick = function() {
+      //   var newQuote = prompt("What is the new quote?")
+      // }
 
     </script>
 
+    <?php
+    function changeQuote() {
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "login";
+
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+
+
+      $sql = "UPDATE quotes SET quote='beeeee' WHERE id=1";
+
+      if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+      } else {
+        echo "Error updating record: " . $conn->error;
+      }
+    }
+
+
+
+     ?>
+
+     <script>
+     var button = document.getElementById("button");
+
+     button.onclick = function () {
+       document.write(" <?php changeQuote(); ?> ");
+     };
+     </script>
+
+
 </body>
-
-
 </html>
