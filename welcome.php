@@ -21,12 +21,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
     <div class="page-header">
-        <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
+        <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to your dashboard</h1>
     </div>
     <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
-        <button type="button" id="changeQuoteButton" class="btn">Change Quote</button>
+        <!-- <button type="button" id="changeQuoteButton" class="btn">Change Quote</button> -->
     </p>
 
     <form class="" action="submit.php" method="post">
@@ -35,15 +35,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <button type="submit" name="button">Update Quote</button>
     </form>
 
-    <script>
-      // var button1 = document.getElementById("changeQuoteButton");
-      //
-      //
-      // button1.onclick = function() {
-      //   var newQuote = prompt("What is the new quote?")
-      // }
-
-    </script>
+    <style media="screen">
+      input {
+        width: 20%;
+        height: 5%;
+        font-size: 1.2em;
+        font: 14px sans-serif;
+      }
+    </style>
 
     <?php
     function changeQuote($id, $quote) {
