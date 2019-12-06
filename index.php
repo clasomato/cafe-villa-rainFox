@@ -88,6 +88,16 @@
 
 
     <div class="indexCollum2">
+      <h2>Quote of the day</h2>
+      <p> <?php $sql = "SELECT quote FROM quotes";
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              echo $row["quote"];
+          }
+      } ?> </p>
       <div class="location">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d512.6164235245642!2d174.77424871609506!3d-41.24768394493158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d38ae021e9fde63%3A0x7e428be96eb1f47f!2sCafe%20Villa!5e0!3m2!1sen!2snz!4v1574049143522!5m2!1sen!2snz" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         <p>
@@ -114,16 +124,7 @@
 
        <br>
 
-       <h2>Quote of the day:</h2>
-       <p> <?php $sql = "SELECT quote FROM quotes";
-       $result = $conn->query($sql);
 
-       if ($result->num_rows > 0) {
-           // output data of each row
-           while($row = $result->fetch_assoc()) {
-               echo $row["quote"];
-           }
-       } ?> </p>
     </div>
 
 

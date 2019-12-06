@@ -4,25 +4,25 @@ $username = "root";
 $password = "";
 $dbname = "login";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT id, username, password FROM users";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        // echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-        echo "id: " . $row["id"]. " - Name: " . $row["username"]. "     " . $row["password"] .  "<br>";
-    }
-} else {
-    echo "0 results";
-}
+// // Create connection
+// $conn = new mysqli($servername, $username, $password, $dbname);
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+//
+// $sql = "SELECT id, username, password FROM users";
+// $result = $conn->query($sql);
+//
+// if ($result->num_rows > 0) {
+//     // output data of each row
+//     while($row = $result->fetch_assoc()) {
+//         // echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+//         echo "id: " . $row["id"]. " - Name: " . $row["username"]. "     " . $row["password"] .  "<br>";
+//     }
+// } else {
+//     echo "0 results";
+// }
 
 // Sending Data To the base
 
@@ -53,26 +53,26 @@ if ($result->num_rows > 0) {
 // }
 
 
-function changeQuote() {
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "login";
-
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  $sql = "SELECT quote FROM quotes";
-  $result = $conn->query($sql);
-
-  if ($result->num_rows > 0) {
-      // output data of each row
-      while($row = $result->fetch_assoc()) {
-          // echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-          echo "Quote of the day!" .  "<br>" . $row["quote"];
-      }
-  } else {
-      echo "0 results";
-  }
-}
+// function changeQuote() {
+//   $servername = "localhost";
+//   $username = "root";
+//   $password = "";
+//   $dbname = "login";
+//
+//   $conn = new mysqli($servername, $username, $password, $dbname);
+//   $sql = "SELECT quote FROM quotes";
+//   $result = $conn->query($sql);
+//
+//   if ($result->num_rows > 0) {
+//       // output data of each row
+//       while($row = $result->fetch_assoc()) {
+//           // echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+//           echo "Quote of the day!" .  "<br>" . $row["quote"];
+//       }
+//   } else {
+//       echo "0 results";
+//   }
+// }
 
 // changeQuote();
 

@@ -29,6 +29,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <button type="button" id="changeQuoteButton" class="btn">Change Quote</button>
     </p>
 
+    <form class="" action="submit.php" method="post">
+      <input type="" name="quote" value=" <?php getQuote(1); ?> ">
+
+      <button type="submit" name="button">Update Quote</button>
+    </form>
+
     <script>
       // var button1 = document.getElementById("changeQuoteButton");
       //
@@ -40,7 +46,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </script>
 
     <?php
-    function changeQuote() {
+    function changeQuote($id, $quote) {
       $servername = "localhost";
       $username = "root";
       $password = "";
@@ -54,12 +60,41 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       }
 
 
-      $sql = "UPDATE quotes SET quote='beeeee' WHERE id=1";
+      $sql = "UPDATE quotes SET quote=$quote WHERE id=$id";
 
       if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully";
       } else {
         echo "Error updating record: " . $conn->error;
+      }
+    }
+
+
+
+    // GETING THE DAM QUOTE
+    function getQuote($id){
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "login";
+
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+
+
+      $sql = "SELECT id, quote FROM quotes WHERE $id = id";
+
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_array()) {
+              echo $row["quote"];
+          }
       }
     }
 
