@@ -88,7 +88,7 @@
 
 
     <div class="indexCollum2">
-      <h2>Quote of the day</h2>
+      <h2 style="font-size: 2em; line-height: 0.1em;">Quote of the day</h2>
       <p> <?php $sql = "SELECT quote FROM quotes";
       $result = $conn->query($sql);
 

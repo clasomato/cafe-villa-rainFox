@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 // Include config file
 require_once "config.php";
 
@@ -132,4 +132,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </form>
     </div>
 </body>
-</html>
+</html> -->
