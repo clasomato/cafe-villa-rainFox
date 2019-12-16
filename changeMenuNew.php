@@ -1,5 +1,17 @@
 <!doctype html>
 <?
+// Initialize the session
+session_start();
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
+
+
+
 function getName($id){
   $servername = "localhost";
   $username = "root";
@@ -150,6 +162,7 @@ function getImage($id){
 
 
   <div class="menuContainer">
+    <a href="welcome.php">Go Back</a>
     <form class="" action="changeRemove.php" method="post">
       <h2>Add Item</h2>
       <h4>Name</h4> <input type="" name="name" value=""> <br>
@@ -169,7 +182,7 @@ function getImage($id){
             <?php getDescription(1); ?>
           </p>
           <h3>$<?php getPrice(1); ?></h3>
-          <form class="" action="removeItem.php" method="post">
+          <form class="" action="<?php removeItem(1); ?>" method="post">
             <button type="submit" name="button">Remove</button>
           </form>
         </div>
@@ -212,6 +225,9 @@ function getImage($id){
             <?php getDescription(10); ?>
           </p>
           <h3>$<?php getPrice(10); ?></h3>
+          <form class="" action="<?php removeItem(10); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -223,6 +239,9 @@ function getImage($id){
             <?php getDescription(13); ?>
           </p>
           <h3>$<?php getPrice(13); ?></h3>
+          <form class="" action="<?php removeItem(13); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -234,6 +253,9 @@ function getImage($id){
             <?php getDescription(16); ?>
           </p>
           <h3>$<?php getPrice(16); ?></h3>
+          <form class="" action="<?php removeItem(16); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -245,6 +267,9 @@ function getImage($id){
             <?php getDescription(19); ?>
           </p>
           <h3>$<?php getPrice(19); ?></h3>
+          <form class="" action="<?php removeItem(19); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -256,6 +281,9 @@ function getImage($id){
             <?php getDescription(22); ?>
           </p>
           <h3>$<?php getPrice(22); ?></h3>
+          <form class="" action="<?php removeItem(22); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -267,6 +295,9 @@ function getImage($id){
             <?php getDescription(25); ?>
           </p>
           <h3>$<?php getPrice(25); ?></h3>
+          <form class="" action="<?php removeItem(25); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -278,6 +309,9 @@ function getImage($id){
             <?php getDescription(28); ?>
           </p>
           <h3>$<?php getPrice(28); ?></h3>
+          <form class="" action="<?php removeItem(28); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -289,6 +323,9 @@ function getImage($id){
             <?php getDescription(31); ?>
           </p>
           <h3>$<?php getPrice(31); ?></h3>
+          <form class="" action="<?php removeItem(31); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -306,7 +343,7 @@ function getImage($id){
             <?php getDescription(2); ?>
           </p>
           <h3>$<?php getPrice(2); ?></h3>
-          <form class="" action="removeItem.php" method="post">
+          <form class="" action="<?php removeItem(2); ?>" method="post">
             <button type="submit" name="button">Remove</button>
           </form>
         </div>
@@ -320,7 +357,7 @@ function getImage($id){
             <?php getDescription(5); ?>
           </p>
           <h3>$<?php getPrice(5); ?></h3>
-          <form class="" action="removeItem.php" method="post">
+          <form class="" action="<?php removeItem(5); ?>" method="post">
             <button type="submit" name="button">Remove</button>
           </form>
         </div>
@@ -334,6 +371,9 @@ function getImage($id){
             <?php getDescription(8); ?>
           </p>
           <h3>$<?php getPrice(8); ?></h3>
+          <form class="" action="<?php removeItem(8); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -345,6 +385,9 @@ function getImage($id){
             <?php getDescription(11); ?>
           </p>
           <h3>$<?php getPrice(11); ?></h3>
+          <form class="" action="<?php removeItem(11); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -356,6 +399,9 @@ function getImage($id){
             <?php getDescription(14); ?>
           </p>
           <h3>$<?php getPrice(14); ?></h3>
+          <form class="" action="<?php removeItem(14); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -367,6 +413,9 @@ function getImage($id){
             <?php getDescription(17); ?>
           </p>
           <h3>$<?php getPrice(17); ?></h3>
+          <form class="" action="<?php removeItem(17); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -378,6 +427,9 @@ function getImage($id){
             <?php getDescription(20); ?>
           </p>
           <h3>$<?php getPrice(20); ?></h3>
+          <form class="" action="<?php removeItem(20); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -389,6 +441,9 @@ function getImage($id){
             <?php getDescription(23); ?>
           </p>
           <h3>$<?php getPrice(23); ?></h3>
+          <form class="" action="<?php removeItem(23); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -400,6 +455,9 @@ function getImage($id){
             <?php getDescription(26); ?>
           </p>
           <h3>$<?php getPrice(26); ?></h3>
+          <form class="" action="<?php removeItem(26); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -411,6 +469,9 @@ function getImage($id){
             <?php getDescription(29); ?>
           </p>
           <h3>$<?php getPrice(29); ?></h3>
+          <form class="" action="<?php removeItem(29); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -422,6 +483,9 @@ function getImage($id){
             <?php getDescription(32); ?>
           </p>
           <h3>$<?php getPrice(32); ?></h3>
+          <form class="" action="<?php removeItem(32); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -466,6 +530,9 @@ function getImage($id){
             <?php getDescription(9); ?>
           </p>
           <h3>$<?php getPrice(9); ?></h3>
+          <form class="" action="<?php removeItem(9); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -477,6 +544,9 @@ function getImage($id){
             <?php getDescription(12); ?>
           </p>
           <h3>$<?php getPrice(12); ?></h3>
+          <form class="" action="<?php removeItem(12); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -488,6 +558,9 @@ function getImage($id){
             <?php getDescription(15); ?>
           </p>
           <h3>$<?php getPrice(15); ?></h3>
+          <form class="" action="<?php removeItem(15); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -499,6 +572,9 @@ function getImage($id){
             <?php getDescription(18); ?>
           </p>
           <h3>$<?php getPrice(18); ?></h3>
+          <form class="" action="<?php removeItem(18); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -510,6 +586,9 @@ function getImage($id){
             <?php getDescription(21); ?>
           </p>
           <h3>$<?php getPrice(21); ?></h3>
+          <form class="" action="<?php removeItem(21); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -521,6 +600,9 @@ function getImage($id){
             <?php getDescription(24); ?>
           </p>
           <h3>$<?php getPrice(24); ?></h3>
+          <form class="" action="<?php removeItem(24); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -532,6 +614,9 @@ function getImage($id){
             <?php getDescription(27); ?>
           </p>
           <h3>$<?php getPrice(27); ?></h3>
+          <form class="" action="<?php removeItem(27); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -543,6 +628,9 @@ function getImage($id){
             <?php getDescription(30); ?>
           </p>
           <h3>$<?php getPrice(30); ?></h3>
+          <form class="" action="<?php removeItem(30); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
