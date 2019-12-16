@@ -105,6 +105,27 @@ function getImage($id){
   }
 }
 
+  function removeItem($id){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "login";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "DELETE FROM menu WHERE $id = id";
+
+    if (mysqli_query($conn, $sql)) {
+    echo "Record deleted successfully";
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+  }
  ?>
 
 
@@ -134,7 +155,7 @@ function getImage($id){
       <h4>Name</h4> <input type="" name="name" value=""> <br>
       <h4>Description</h4> <input type="" name="description" value=""> <br>
       <h4>Price</h4> <input type="" name="price" value=""> <br>
-      <h4>Image code</h4> <input type="" name="image" value="" style="width: 90%;"> <br>
+      <h4>Image code <a href="https://www.base64-image.de/" target="_blank">Click this to get a code</a></h4> <input type="" name="image" value="" style="width: 90%;"> <br>
       <button type="submit" name="button">Submit</button>
     </form>
 
@@ -148,6 +169,9 @@ function getImage($id){
             <?php getDescription(1); ?>
           </p>
           <h3>$<?php getPrice(1); ?></h3>
+          <form class="" action="removeItem.php" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -160,6 +184,9 @@ function getImage($id){
             <?php getDescription(4); ?>
           </p>
           <h3>$<?php getPrice(4); ?></h3>
+          <form class="" action="<?php removeItem(4); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -171,6 +198,9 @@ function getImage($id){
             <?php getDescription(7); ?>
           </p>
           <h3>$<?php getPrice(7); ?></h3>
+          <form class="" action="<?php removeItem(7); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -276,6 +306,9 @@ function getImage($id){
             <?php getDescription(2); ?>
           </p>
           <h3>$<?php getPrice(2); ?></h3>
+          <form class="" action="removeItem.php" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -287,6 +320,9 @@ function getImage($id){
             <?php getDescription(5); ?>
           </p>
           <h3>$<?php getPrice(5); ?></h3>
+          <form class="" action="removeItem.php" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -402,6 +438,9 @@ function getImage($id){
             <?php getDescription(3); ?>
           </p>
           <h3>$<?php getPrice(3); ?></h3>
+          <form class="" action=<?php removeItem(3); ?> method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 
@@ -413,6 +452,9 @@ function getImage($id){
             <?php getDescription(6); ?>
           </p>
           <h3>$<?php getPrice(6); ?></h3>
+          <form class="" action="<?php removeItem(6); ?>" method="post">
+            <button type="submit" name="button">Remove</button>
+          </form>
         </div>
       </div>
 

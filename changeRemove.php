@@ -15,6 +15,7 @@ function newItem($id, $name, $description, $price, $image) {
 
   $sql = "INSERT INTO menu SET name='$name', description='$description', price='$price', image='$image' ";
 
+
   if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";
   } else {
