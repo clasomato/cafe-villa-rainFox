@@ -13,9 +13,17 @@ function removeItem($id){
   }
 
   $sql = "DELETE FROM menu WHERE $id = id";
-}
+  if ($conn->query($sql) === TRUE) {
+    echo "Record Deleted successfully";
+  } else {
+    echo "Error Deleting record: " . $conn->error;
+  }
+};
 
 $id = $_POST["id"];
 removeItem($id);
 
  ?>
+ <script>
+  window.setTimeout(() => window.history.back(), 2000);
+ </script>

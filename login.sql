@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2019 at 04:52 AM
+-- Generation Time: Dec 05, 2019 at 11:53 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `quotes` (
   `id` int(6) UNSIGNED NOT NULL,
-  `quote` text NOT NULL
+  `quote` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `quotes` (
 --
 
 INSERT INTO `quotes` (`id`, `quote`) VALUES
-(1, 'Welcome To The Site, Proudly made by rainFox');
+(1, 'beeeee');
 
 -- --------------------------------------------------------
 

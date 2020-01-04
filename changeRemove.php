@@ -1,4 +1,29 @@
 <?php
+function getNumberOfMenuItems(){
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "login";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+
+
+  $sql = "SELECT * FROM menu";
+
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // var_dump($result);
+    // var_dump(array($result));
+    return mysqli_num_rows($result);
+  }
+};
+
 function newItem($id, $name, $description, $price, $image) {
 
   $servername = "localhost";
@@ -24,11 +49,15 @@ function newItem($id, $name, $description, $price, $image) {
 }
 
 
-
 $name = $_POST["name"];
 $description = $_POST["description"];
 $price = $_POST["price"];
-$image = $_POST["image"];
 
-newItem(1, $name, $description, $price, $image);
+$file = $_FILES["imageToUpload"];
+
+$type = $file['type'];
+$data = file_get_contents($file['tmp_name']);
+$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+newItem(getNumberOfMenuItems(), $name, $description, $price, $base64);
 ?>

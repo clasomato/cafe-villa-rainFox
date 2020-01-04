@@ -1,0 +1,241 @@
+ <!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cafe Villa</title>
+<meta name="description" content="A  FILL THIS OUTTTTT!!!!!!!!!!!!">
+<meta name="keywords" content="   ">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" type="image/png" href="media/ico.png">
+</head>
+
+<body>
+  <!--Navigation Bar-->
+<?php include 'nav.html' ?>
+
+<?php include 'menuslider.html' ?>
+
+  <div class="menuContainer">
+    <!-- Mobile Nav -->
+    <div class="mobileMenuNav">
+      <div class="menuButtonD mobile" id="menuactive">
+        <a href="menu.php" class="menuButton">Mains</a>
+      </div>
+
+      <div class="menuButtonD mobile">
+        <a href="kids.php" class="menuButton">Kids</a>
+      </div>
+
+      <div class="menuButtonD mobile" style="margin-bottom: 13%;">
+        <a href="drinks.php" class="menuButton">Drinks</a>
+      </div>
+    </div>
+
+
+
+    <div class="col1">
+
+      <div class="menuButtonD desktop">
+        <a href="kids.php" class="menuButton">Kids</a>
+      </div>
+
+      <div class="menuItem">
+        <img src="media/menuItems/main1.jpg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>Beef Burger</h2>
+          <p>
+            a prime beef patty with caramelised onions, brie, beetroot and plum sauce, served with a side of salted wedges.
+          </p>
+          <h3>$22</h3>
+        </div>
+      </div>
+
+      <!-- Bacon and Avocado Gourmet Sandwich -->
+      <div class="menuItem">
+        <img src="media/menuItems/main4.jpg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>Bacon and Avocado Gourmet Sandwich</h2>
+          <p>
+            on toasted sourdough, Villa relish, tomato and mesclun Corn Fritters with bacon and sweet chilli sauce, and sour cream Bagel Special with cream cheese, bacon, tomato and spicy sauce. Salmon Scrambled eggs : Served on toasted sourdough Omelette Choose three fillings from: spinach, mushroom, ham, feta, onion, chorizo, tomato and cheese. Served with salad. with toast
+          </p>
+          <h3>$22</h3>
+        </div>
+      </div>
+
+      <div class="menuItem">
+        <img src="media/menuItems/main7.jpg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>Big Breakfast</h2>
+          <p>
+            bacon eggs, hashbrowns, tomato, mushroom and toasted sourdough
+          </p>
+          <h3>$24</h3>
+        </div>
+      </div>
+
+      <div class="menuItem">
+        <img src="media/menuItems/main10.jpg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>French Toast</h2>
+          <p>
+            with maple syrup and either fresh fruit or bacon at $19.00 or with both bacon and fresh fruit.
+          </p>
+          <h3>$21.00</h3>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+    <div class="col2">
+    <div class="menuButtonD desktop" id="menuactive">
+      <a href="menu.php" class="menuButton">Mains</a>
+    </div>
+
+
+      <div class="menuItem">
+        <img src="media/menuItems/main2.jpg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>Gourmet Mushrooms</h2>
+          <p>
+            with bacon served on sourdough bread
+          </p>
+          <h3>$22</h3>
+        </div>
+      </div>
+
+      <div class="menuItem">
+        <img src="media/menuItems/main5.jpeg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>Salads</h2>
+          <p>
+            cajun chicken, served with orange yoghurt dressing and garlic bread
+          </p>
+          <h3>$21.50</h3>
+        </div>
+      </div>
+
+      <div class="menuItem">
+        <img src="media/menuItems/main8.jpg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>Eggs Benedict</h2>
+          <p>
+            Poached eggs with ham or bacon on a toasted bagel with homemade hollandaise sauce
+          </p>
+          <h3>$19.50</h3>
+        </div>
+      </div>
+
+      <div class="menuItem">
+        <img src="media/menuItems/main11.jpg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>Nachos</h2>
+          <p>
+            chilli beans and melted cheese and sourcream on corn chips.
+          </p>
+          <h3>$16.50</h3>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="col3">
+      <div class="menuButtonD desktop">
+        <a href="drinks.php" class="menuButton">Drinks</a>
+      </div>
+
+      <div class="menuItem">
+        <img src="media/menuItems/main3.jpg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>Lambs Fry</h2>
+          <p>
+            with bacon and onions in a port and cream sauce with toasted sourdough. Chicken Gourmet Sandwich on toasted sourdough, cajun chicken, spicy apricot sauce, brie and mesclun
+          </p>
+          <h3>$22</h3>
+        </div>
+      </div>
+
+      <div class="menuItem">
+        <img src="media/menuItems/main6.jpg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>Villa Pate</h2>
+          <p>
+            Our homemade pate with Villa relish, caramelised onions and toasted sourdough
+          </p>
+          <h3>$19</h3>
+        </div>
+      </div>
+
+      <div class="menuItem">
+        <img src="media/menuItems/main9.jpg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>Eggs Florentine</h2>
+          <p>
+            Poached eggs on a toasted bagel with wilted baby spinach served with our homemade hollandaise
+          </p>
+          <h3>$20.50</h3>
+        </div>
+      </div>
+
+      <div class="menuItem">
+        <img src="media/menuItems/main12.jpg" alt="" class="menuImg">
+        <div class="menuText">
+          <h2>Homemade potato wedges</h2>
+          <p>
+            salted or seasoned. Served with your choice of sauces. Small $8.50 large $10.00
+          </p>
+          <h3>$8.50 - $10.00</h3>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+  <?php include 'footer.html' ?>
+
+  <!-- Javascript Area -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > x.length) {slideIndex = 1}
+      x[slideIndex-1].style.display = "block";
+      setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+  </script>
+
+
+
+
+  <script>
+    /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+    function myFunction() {
+        var x = document.getElementById("myTopnavMobile");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+      x.className = "topnav";
+      }
+    }
+  </script>
+
+</body>
