@@ -1,4 +1,66 @@
 <!doctype html>
+<?php
+function getMenuItems(){
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "login";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+
+
+  $sql = "SELECT * FROM menuDrinks";
+
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+      $rows = [];
+      while($row = mysqli_fetch_array($result)) {
+          $rows[] = $row;
+      }
+      return $rows;
+  }
+};
+
+
+
+function getNumberOfMenuItems(){
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "login";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+
+
+  $sql = "SELECT * FROM menuDrinks";
+
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // var_dump($result);
+    // var_dump(array($result));
+    return mysqli_num_rows($result);
+  }
+};
+
+
+
+ ?>
+
+
+
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -36,99 +98,94 @@
     </div>
 
 
+
     <div class="col1">
       <div class="menuButtonD desktop">
         <a href="kids.php" class="menuButton">Kids</a>
       </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/d2.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Coffee</h2>
-          <p>
-
-          </p>
-          <h3>Small: $2.50 <br>
-            medium: $3.50 <br>
-            large: $4.50 <br>
-          </h3>
-        </div>
-      </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/d4.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Smoothie</h2>
-          <p>
-
-          </p>
-          <h3>$4.50</h3>
-        </div>
-      </div>
+        <?php
+          $i = 0;
+          $items = getMenuItems();
+          while ($i < getNumberOfMenuItems()):
+        ?>
+          <?php $item = $items[$i]; ?>
+          <div class="menuItem">
+            <img src="<?php echo $item['image']; ?>" alt="" class="menuImg">
+            <div class="menuText">
+              <h2><?php echo $item['name'] ?></h2>
+              <p>
+                <?php echo $item['description'] ?>
+              </p>
+              <h3>$<?php echo $item['price'] ?></h3>
+              <form class="" action="removeItemDrinks.php" method="post">
+                <input name="id" style="display: none;" value="<?php echo $item['id'] ?>">
+                <button type="submit" name="button">Remove</button>
+              </form>
+            </div>
+          </div>
+          <?php $i = $i + 3; ?>
+        <?php endwhile; ?>
     </div>
+
+
 
 
     <div class="col2">
-    <div class="menuButtonD desktop">
-      <a href="menu.php" class="menuButton">Mains</a>
-    </div>
-
-    <div class="menuItem">
-      <img src="media/menuItems/d1.jpg" alt="" class="menuImg">
-      <div class="menuText">
-        <h2>Hot Chocolate</h2>
-        <p>
-
-        </p>
-        <h3>$4.50</h3>
+      <div class="menuButtonD desktop">
+        <a href="menu.php" class="menuButton">Mains</a>
       </div>
+      <?php
+        $i = 1;
+        $items = getMenuItems();
+        while ($i < getNumberOfMenuItems()):
+      ?>
+        <?php $item = $items[$i]; ?>
+        <div class="menuItem">
+          <img src="<?php echo $item['image']; ?>" alt="" class="menuImg">
+          <div class="menuText">
+            <h2><?php echo $item['name'] ?></h2>
+            <p>
+              <?php echo $item['description'] ?>
+            </p>
+            <h3>$<?php echo $item['price'] ?></h3>
+            <form class="" action="removeItemDrinks.php" method="post">
+              <input name="id" style="display: none;" value="<?php echo $item['id'] ?>">
+              <button type="submit" name="button">Remove</button>
+            </form>
+          </div>
+        </div>
+        <?php $i = $i + 3; ?>
+      <?php endwhile; ?>
     </div>
 
-    <div class="menuItem">
-      <img src="media/menuItems/d5.jpg" alt="" class="menuImg">
-      <div class="menuText">
-        <h2>T-Leaf Tea</h2>
-        <p>
-
-        </p>
-        <h3>$3.50</h3>
-      </div>
-    </div>
-
-
-
-
-    </div>
 
 
     <div class="col3">
       <div class="menuButtonD desktop" id="menuactive">
         <a href="drinks.php" class="menuButton">Drinks</a>
       </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/d3.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Chocolate Milk</h2>
-          <p>
-
-          </p>
-          <h3>$2.00</h3>
+      <?php
+        $i = 2;
+        $items = getMenuItems();
+        while ($i < getNumberOfMenuItems()):
+      ?>
+        <?php $item = $items[$i]; ?>
+        <div class="menuItem">
+          <img src="<?php echo $item['image']; ?>" alt="" class="menuImg">
+          <div class="menuText">
+            <h2><?php echo $item['name'] ?></h2>
+            <p>
+              <?php echo $item['description'] ?>
+            </p>
+            <h3>$<?php echo $item['price'] ?></h3>
+            <form class="" action="removeItemDrinks.php" method="post">
+              <input name="id" style="display: none;" value="<?php echo $item['id'] ?>">
+              <button type="submit" name="button">Remove</button>
+            </form>
+          </div>
         </div>
-      </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/d6.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Soft Drinks</h2>
-          <p>
-
-          </p>
-          <h3>$2.50 (per 350ml)</h3>
-        </div>
-      </div>
-
-
+        <?php $i = $i + 3; ?>
+      <?php endwhile; ?>
     </div>
   </div>
 

@@ -24,7 +24,7 @@ function getMenuItems(){
   }
 
 
-  $sql = "SELECT * FROM menu";
+  $sql = "SELECT * FROM menuDrinks";
 
   $result = $conn->query($sql);
 
@@ -53,7 +53,7 @@ function getNumberOfMenuItems(){
   }
 
 
-  $sql = "SELECT * FROM menu";
+  $sql = "SELECT * FROM menuDrinks";
 
   $result = $conn->query($sql);
 
@@ -82,12 +82,9 @@ function getNumberOfMenuItems(){
 <link rel="icon" type="image/png" href="media/ico.png">
 </head>
 <body>
-
   <div class="menuContainer" style="overflow: auto;">
-    <a href="welcome.php">Go Back</a> <br>
-    <a href="changeTheMenuKids.php">Kids Menu</a> <br>
-    <a href="changeTheMenuDrinks.php">Drinks Menu</a>
-    <form class="" action="changeRemove.php" method="post" enctype="multipart/form-data">
+    <a href="changeTheMenu.php">Go Back</a>
+    <form class="" action="changeRemove-drinks.php" method="post" enctype="multipart/form-data">
       <h2>Add Item</h2>
       <h4>Name</h4> <input type="" name="name" value=""> <br>
       <h4>Description</h4> <input type="" name="description" value=""> <br>
@@ -97,7 +94,7 @@ function getNumberOfMenuItems(){
       <button type="submit" name="button">Submit</button>
     </form>
     <br>
-    <h1 style="text-align: center;">Main Menu</h1>
+    <h1 style="text-align: center;">Drinks Menu</h1>
     <br>
     <div class="col1" style="overflow: auto;">
         <?php
@@ -114,7 +111,7 @@ function getNumberOfMenuItems(){
                 <?php echo $item['description'] ?>
               </p>
               <h3>$<?php echo $item['price'] ?></h3>
-              <form class="" action="removeItem.php" method="post">
+              <form class="" action="removeItemDrinks.php" method="post">
                 <input name="id" style="display: none;" value="<?php echo $item['id'] ?>">
                 <button type="submit" name="button">Remove</button>
               </form>
@@ -138,7 +135,7 @@ function getNumberOfMenuItems(){
               <?php echo $item['description'] ?>
             </p>
             <h3>$<?php echo $item['price'] ?></h3>
-            <form class="" action="removeItem.php" method="post">
+            <form class="" action="removeItemDrinks.php" method="post">
               <input name="id" style="display: none;" value="<?php echo $item['id'] ?>">
               <button type="submit" name="button">Remove</button>
             </form>
@@ -162,7 +159,7 @@ function getNumberOfMenuItems(){
               <?php echo $item['description'] ?>
             </p>
             <h3>$<?php echo $item['price'] ?></h3>
-            <form class="" action="removeItem.php" method="post">
+            <form class="" action="removeItemDrinks.php" method="post">
               <input name="id" style="display: none;" value="<?php echo $item['id'] ?>">
               <button type="submit" name="button">Remove</button>
             </form>

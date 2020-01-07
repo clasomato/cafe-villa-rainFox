@@ -1,4 +1,61 @@
- <!doctype html>
+<?php
+function getMenuItems(){
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "login";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+
+
+  $sql = "SELECT * FROM menu";
+
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+      $rows = [];
+      while($row = mysqli_fetch_array($result)) {
+          $rows[] = $row;
+      }
+      return $rows;
+  }
+};
+
+function getNumberOfMenuItems(){
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "login";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+
+
+  $sql = "SELECT * FROM menu";
+
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // var_dump($result);
+    // var_dump(array($result));
+    return mysqli_num_rows($result);
+  }
+};
+
+
+
+ ?>
+
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -34,167 +91,87 @@
         <a href="drinks.php" class="menuButton">Drinks</a>
       </div>
     </div>
-
-
-
+    <br>
     <div class="col1">
-
       <div class="menuButtonD desktop">
         <a href="kids.php" class="menuButton">Kids</a>
       </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/main1.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Beef Burger</h2>
-          <p>
-            a prime beef patty with caramelised onions, brie, beetroot and plum sauce, served with a side of salted wedges.
-          </p>
-          <h3>$22</h3>
-        </div>
-      </div>
-
-      <!-- Bacon and Avocado Gourmet Sandwich -->
-      <div class="menuItem">
-        <img src="media/menuItems/main4.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Bacon and Avocado Gourmet Sandwich</h2>
-          <p>
-            on toasted sourdough, Villa relish, tomato and mesclun Corn Fritters with bacon and sweet chilli sauce, and sour cream Bagel Special with cream cheese, bacon, tomato and spicy sauce. Salmon Scrambled eggs : Served on toasted sourdough Omelette Choose three fillings from: spinach, mushroom, ham, feta, onion, chorizo, tomato and cheese. Served with salad. with toast
-          </p>
-          <h3>$22</h3>
-        </div>
-      </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/main7.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Big Breakfast</h2>
-          <p>
-            bacon eggs, hashbrowns, tomato, mushroom and toasted sourdough
-          </p>
-          <h3>$24</h3>
-        </div>
-      </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/main10.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>French Toast</h2>
-          <p>
-            with maple syrup and either fresh fruit or bacon at $19.00 or with both bacon and fresh fruit.
-          </p>
-          <h3>$21.00</h3>
-        </div>
-      </div>
-
-
-
+        <?php
+          $i = 0;
+          $items = getMenuItems();
+          while ($i < getNumberOfMenuItems()):
+        ?>
+          <?php $item = $items[$i]; ?>
+          <div class="menuItem">
+            <img src="<?php echo $item['image']; ?>" alt="" class="menuImg">
+            <div class="menuText">
+              <h2><?php echo $item['name'] ?></h2>
+              <p>
+                <?php echo $item['description'] ?>
+              </p>
+              <h3>$<?php echo $item['price'] ?></h3>
+            </div>
+          </div>
+          <?php $i = $i + 3; ?>
+        <?php endwhile; ?>
     </div>
+
+
+
+
 
 
     <div class="col2">
-    <div class="menuButtonD desktop" id="menuactive">
-      <a href="menu.php" class="menuButton">Mains</a>
+      <div class="menuButtonD desktop" id="menuactive">
+        <a href="menu.php" class="menuButton">Mains</a>
+      </div>
+      <?php
+        $i = 1;
+        $items = getMenuItems();
+        while ($i < getNumberOfMenuItems()):
+      ?>
+        <?php $item = $items[$i]; ?>
+        <div class="menuItem">
+          <img src="<?php echo $item['image']; ?>" alt="" class="menuImg">
+          <div class="menuText">
+            <h2><?php echo $item['name'] ?></h2>
+            <p>
+              <?php echo $item['description'] ?>
+            </p>
+            <h3>$<?php echo $item['price'] ?></h3>
+          </div>
+        </div>
+        <?php $i = $i + 3; ?>
+      <?php endwhile; ?>
     </div>
 
 
-      <div class="menuItem">
-        <img src="media/menuItems/main2.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Gourmet Mushrooms</h2>
-          <p>
-            with bacon served on sourdough bread
-          </p>
-          <h3>$22</h3>
-        </div>
-      </div>
 
-      <div class="menuItem">
-        <img src="media/menuItems/main5.jpeg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Salads</h2>
-          <p>
-            cajun chicken, served with orange yoghurt dressing and garlic bread
-          </p>
-          <h3>$21.50</h3>
-        </div>
-      </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/main8.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Eggs Benedict</h2>
-          <p>
-            Poached eggs with ham or bacon on a toasted bagel with homemade hollandaise sauce
-          </p>
-          <h3>$19.50</h3>
-        </div>
-      </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/main11.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Nachos</h2>
-          <p>
-            chilli beans and melted cheese and sourcream on corn chips.
-          </p>
-          <h3>$16.50</h3>
-        </div>
-      </div>
-
-
-    </div>
 
 
     <div class="col3">
       <div class="menuButtonD desktop">
         <a href="drinks.php" class="menuButton">Drinks</a>
       </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/main3.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Lambs Fry</h2>
-          <p>
-            with bacon and onions in a port and cream sauce with toasted sourdough. Chicken Gourmet Sandwich on toasted sourdough, cajun chicken, spicy apricot sauce, brie and mesclun
-          </p>
-          <h3>$22</h3>
+      <?php
+        $i = 2;
+        $items = getMenuItems();
+        while ($i < getNumberOfMenuItems()):
+      ?>
+        <?php $item = $items[$i]; ?>
+        <div class="menuItem">
+          <img src="<?php echo $item['image']; ?>" alt="" class="menuImg">
+          <div class="menuText">
+            <h2><?php echo $item['name'] ?></h2>
+            <p>
+              <?php echo $item['description'] ?>
+            </p>
+            <h3>$<?php echo $item['price'] ?></h3>
+          </div>
         </div>
-      </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/main6.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Villa Pate</h2>
-          <p>
-            Our homemade pate with Villa relish, caramelised onions and toasted sourdough
-          </p>
-          <h3>$19</h3>
-        </div>
-      </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/main9.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Eggs Florentine</h2>
-          <p>
-            Poached eggs on a toasted bagel with wilted baby spinach served with our homemade hollandaise
-          </p>
-          <h3>$20.50</h3>
-        </div>
-      </div>
-
-      <div class="menuItem">
-        <img src="media/menuItems/main12.jpg" alt="" class="menuImg">
-        <div class="menuText">
-          <h2>Homemade potato wedges</h2>
-          <p>
-            salted or seasoned. Served with your choice of sauces. Small $8.50 large $10.00
-          </p>
-          <h3>$8.50 - $10.00</h3>
-        </div>
-      </div>
+        <?php $i = $i + 3; ?>
+      <?php endwhile; ?>
+    </div>
 
 
 
