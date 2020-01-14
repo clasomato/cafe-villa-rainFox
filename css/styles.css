@@ -1,3 +1,165 @@
+body {
+            margin: 0;
+            padding: 0;
+            background-color: #EA474B;
+        }
+
+        .hamburger {
+            position: absolute;
+            right: 2vw;
+            top: 0;
+            width: 10vw;
+            height: 5vh;
+            float: right;
+            margin: 3vh 10vw;
+            cursor: pointer;
+            background: url('../hamburger-menu-icon.svg') no-repeat;
+
+        }
+
+        .overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0,0,0,0.5);
+            z-index: 5;
+            opacity: 0;
+            display: none;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            left: -20em;
+            opacity: 0;
+            z-index: 10;
+        }
+
+            .mobile-nav .logo {
+                width: 40vw;
+                margin: 0 0 3vh 0 !important;
+                padding: 0;
+            }
+
+            .mobile-nav ul {
+                background-color: #EA474B;
+                list-style-type: none;
+                margin: 0;
+                padding: 6vh 10vw;
+            }
+
+                .mobile-nav ul li:not(:last-child) {
+                    margin: 0 0 3vh 0;
+                    padding: 0;
+                }
+
+                .mobile-nav ul li a {
+                    text-decoration: none;
+                    color: white;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 500;
+                    font-size: 6vw;
+                    text-transform: uppercase;
+                    margin: 0;
+                    padding: 0;
+                }
+
+        #mobile-active {
+            box-shadow: 0px 2px 0px 0px white;
+        }
+
+        /* Extra small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+          .desktopNav {
+            display: none;
+          }
+
+          .nav-container {
+            height: 9vh; 
+          }
+
+          .navLogo {
+            display: none;
+          }
+
+            .hamburger {
+                display: block;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+        }
+
+        /* Small devices (portrait tablets and large phones, 600px and up) */
+        @media only screen and (min-width: 600px) {
+
+            .mobile-nav .logo {
+                width: 30vw;
+            }
+
+            .hamburger {
+                display: block;
+                width: 5vw;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+                .mobile-nav ul li a {
+                    font-size: 4vw;
+                }
+        }
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (min-width: 768px) {
+
+            .mobile-nav .logo {
+                width: 20vw;
+            }
+
+            .hamburger {
+                display: block;
+                width: 5vw;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+                .mobile-nav ul li a {
+                    font-size: 3vw;
+                }
+        }
+
+        /* Large devices (laptops/desktops, 992px and up) */
+        @media only screen and (min-width: 992px) {
+
+            .hamburger {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: none;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 html {
   overflow-x: hidden;
 }

@@ -30,7 +30,21 @@
 </head>
 
 <body>
+
   <!--Navigation Bar-->
+  <div class="hamburger"></div>
+  <div class="overlay"></div>
+  <nav class="mobile-nav">
+      <ul>
+          <img class="logo" src="INSERT LOGO" alt="INSERT LOGO" onclick="window.location.href = 'index.php';">
+          <li><a class="" id="mobile-active" href="index.php">Home</a></li>
+          <li><a class="" href="about-us.php">About</a></li>
+          <li><a class="" href="what-we-offer.php">Services</a></li>
+          <li><a class="" href="news.php">News</a></li>
+          <li><a class="" href="contact.php">Contact</a></li>
+      </ul>
+  </nav>
+
  <?php include 'nav.html' ?>
 
   <script src="js/jssor.slider-28.0.0.min.js" type="text/javascript"></script>
@@ -185,6 +199,29 @@
       <hr>
       <h2 class="center" style="font-size: 2em; margin:0.6em 0 0 0;">Job Openings</h2>
       <p>
+        <strong> <?php $sql = "SELECT position FROM jobs";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo $row["position"];
+            }
+        } ?></strong> <br>
+
+        <?php $sql = "SELECT description FROM jobs";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo $row["description"];
+            }
+        } ?>
+
+      </p>
+
+      <p>
         <strong>Trained Barista (2019)<br></strong>
         We are looking for an experienced barista that can make great coffee and do the front of house thing. We are wanting someone to start asap, so if you are looking to relocate to Wellington your timeframe will probably be too slow.
        </p>
@@ -210,8 +247,8 @@
     <?php include 'footer.html' ?>
 
   <!-- Javascript Area -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script type="text/javascript">
+
+  <!-- <script type="text/javascript">
 
   $(document).ready(function(){
 
@@ -240,7 +277,7 @@
     // jQuery End
   });
 
-  </script>
+  </script> -->
 
   <script>
     /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */

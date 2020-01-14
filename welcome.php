@@ -28,6 +28,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
         <a href="index.php" class="btn btn-warning">Return To Home</a><br>
         <a href="changeTheMenu.php" class="btn btn-warning" style="margin-top: 0.5%;">Change Menu</a>
+        <a href="changeJobs.php" class="btn btn-warning" style="margin-top: 0.5%;">Change Jobs</a>
     </p>
 
     <form class="" action="submit.php" method="post">

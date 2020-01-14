@@ -1,5 +1,17 @@
 <nav class="nav-container">
   <a href="index.php"><img src="media/cafe-villa-logo.svg" alt="cafe-vila-logo" class="navLogo"></a>
+  <div class="hamburger"></div>
+          <div class="overlay"></div>
+          <nav class="mobile-nav">
+              <ul>
+                  <img class="logo" src="media/cafe-villa-logo.svg" alt="cafe-vila-logo" onclick="window.location.href = 'index.php';">
+                  <li><a class="" id="mobile-active" href="index.php">Home</a></li>
+                  <li><a class="" href="about-us.php">About</a></li>
+                  <li><a class="" href="what-we-offer.php">Services</a></li>
+                  <li><a class="" href="news.php">News</a></li>
+                  <li><a class="" href="contact.php">Contact</a></li>
+              </ul>
+          </nav>
   <nav class="desktopNav">
     <nav class="desktopNav-container">
       <a href="contact.php" class="nava" id="contact">Contact</a>
@@ -9,3 +21,44 @@
     </nav>
   </nav>
 </nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // START
+
+        $('.hamburger').click(function () {
+            var clicks = $(this).data('clicks');
+            if (clicks) {
+                $(".mobile-nav").animate({
+                    opacity: 0,
+                    left: "-20em"
+                }, 250);
+                $(".overlay").animate({ opacity: "0" }, 250, function () {
+                    $(this).css("display", "none");
+                });
+            } else {
+                $(".mobile-nav").animate({
+                    opacity: 1,
+                    left: "0"
+                }, 250);
+                $(".overlay").css(
+                    "display", "block").animate({ opacity: "1" }, 250);
+            }
+        });
+
+        $(".overlay").click(function () {
+            $(".mobile-nav").animate({
+                opacity: 0,
+                left: "-20em"
+            }, 250);
+            $(".overlay").animate({
+                opacity: 0
+            }, 250, function () {
+                $(this).css("display", "none");
+            });
+        });
+
+        // END
+    });
+</script>
