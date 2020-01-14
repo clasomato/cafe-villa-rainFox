@@ -117,10 +117,6 @@ function getNumberOfMenuItems(){
                 <?php echo $item['description'] ?>
               </p>
               <h3>$<?php echo $item['price'] ?></h3>
-              <form class="" action="removeItemDrinks.php" method="post">
-                <input name="id" style="display: none;" value="<?php echo $item['id'] ?>">
-                <button type="submit" name="button">Remove</button>
-              </form>
             </div>
           </div>
           <?php $i = $i + 3; ?>
@@ -148,10 +144,6 @@ function getNumberOfMenuItems(){
               <?php echo $item['description'] ?>
             </p>
             <h3>$<?php echo $item['price'] ?></h3>
-            <form class="" action="removeItemDrinks.php" method="post">
-              <input name="id" style="display: none;" value="<?php echo $item['id'] ?>">
-              <button type="submit" name="button">Remove</button>
-            </form>
           </div>
         </div>
         <?php $i = $i + 3; ?>
@@ -178,10 +170,6 @@ function getNumberOfMenuItems(){
               <?php echo $item['description'] ?>
             </p>
             <h3>$<?php echo $item['price'] ?></h3>
-            <form class="" action="removeItemDrinks.php" method="post">
-              <input name="id" style="display: none;" value="<?php echo $item['id'] ?>">
-              <button type="submit" name="button">Remove</button>
-            </form>
           </div>
         </div>
         <?php $i = $i + 3; ?>

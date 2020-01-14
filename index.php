@@ -165,7 +165,7 @@
 
     <div class="indexCollum2">
       <h2 class="center" style="font-size: 2em; line-height: 0.1em;">Quote of the Day</h2>
-      <h3 class="center"> <?php $sql = "SELECT quote FROM quotes";
+      <h3 class="center quote-of-the-day"> <?php $sql = "SELECT quote FROM quotes";
       $result = $conn->query($sql);
 
       if ($result->num_rows > 0) {
@@ -242,7 +242,7 @@
 
   </script>
 
-  <!-- <script>
+  <script>
     /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
     function myFunction() {
         var x = document.getElementById("myTopnavMobile");
@@ -252,6 +252,6 @@
       x.className = "topnav";
       }
     }
-  </script> -->
+  </script>
 
 </body>

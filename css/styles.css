@@ -149,6 +149,9 @@ span::selection { background: #B71041; color: white; }
 }
 /**NAvigation ENDS**/
 
+
+
+
 /* Full Width Slideshow */
 
 .header-content {
@@ -333,6 +336,7 @@ span::selection { background: #B71041; color: white; }
     width: 100%;
     float: none;
     margin-bottom: 10%;
+    border: none;
   }
 
   .callToAction {
@@ -364,11 +368,18 @@ span::selection { background: #B71041; color: white; }
     width: 100%;
     float: none;
     margin-bottom: 10%;
+    border: none;
   }
 }
 
 /* Index ENDS */
 
+
+
+/* Col 2 */
+.quote-of-the-day {
+  font-size: 1em;
+}
 
 
 
