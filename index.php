@@ -12,6 +12,62 @@
       die("Connection failed: " . $conn->connect_error);
   }
 
+  function getJobsItems(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "login";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+
+    $sql = "SELECT * FROM jobs";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $rows = [];
+        while($row = mysqli_fetch_array($result)) {
+            $rows[] = $row;
+        }
+        return $rows;
+    }
+  };
+
+
+
+  function getNumberOfJobsItems(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "login";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+
+    $sql = "SELECT * FROM jobs";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+      // var_dump($result);
+      // var_dump(array($result));
+      return mysqli_num_rows($result);
+    }
+  };
+
+
+
  ?>
 
 
@@ -199,29 +255,25 @@
       <hr>
       <h2 class="center" style="font-size: 2em; margin:0.6em 0 0 0;">Job Openings</h2>
       <p>
-        <strong> <?php $sql = "SELECT position FROM jobs";
-        $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo $row["position"];
-            }
-        } ?></strong> <br>
-
-        <?php $sql = "SELECT description FROM jobs";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo $row["description"];
-            }
-        } ?>
 
       </p>
 
-      <p>
+      <?php
+        $i = 0;
+        $items = getJobsItems();
+        while ($i < getNumberOfJobsItems()):
+      ?>
+        <?php $item = $items[$i]; ?>
+        <p> <strong style="font-size: 1.5em;"><?php echo $item['position'] ?></strong> <br>
+          <?php echo $item['description'] ?>
+        </p>
+
+        <hr>
+        <?php $i = $i + 1; ?>
+      <?php endwhile; ?>
+
+      <!-- <p>
         <strong>Trained Barista (2019)<br></strong>
         We are looking for an experienced barista that can make great coffee and do the front of house thing. We are wanting someone to start asap, so if you are looking to relocate to Wellington your timeframe will probably be too slow.
        </p>
@@ -231,7 +283,7 @@
        <p>
          <strong>Waiter (2020)<br></strong>
          We are currently looking for a new set of waiters for 2020 as some of our staff are leaving.
-       </p>
+       </p> -->
 
        <div class="center">
         <?php include 'get-in-touch.html' ?>

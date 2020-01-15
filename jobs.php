@@ -54,3 +54,7 @@ $description = $_POST["description"];
 
 newItem(getNumberOfjobsItems(), $position, $description);
 ?>
+
+<script>
+ window.setTimeout(() => window.history.back(), 2000);
+</script>

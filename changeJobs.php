@@ -27,7 +27,6 @@ function getJobsItems(){
 };
 
 
-
 function getNumberOfJobsItems(){
   $servername = "localhost";
   $username = "root";
@@ -63,6 +62,8 @@ function getNumberOfJobsItems(){
     <title></title>
   </head>
   <body>
+    <a href="welcome.php">Go Back</a>
+    <hr>
     <form class="" action="jobs.php" method="post">
       <input type="" name="position" value="Position">
       <input type="" name="description" value="Description">
@@ -80,7 +81,7 @@ function getNumberOfJobsItems(){
       while ($i < getNumberOfJobsItems()):
     ?>
       <?php $item = $items[$i]; ?>
-      <div class="menuItem" style="border: 2px solid green;">
+      <div class="menuItem">
         <div class="menuText">
           <h2><?php echo $item['position'] ?></h2>
           <p>
@@ -92,7 +93,8 @@ function getNumberOfJobsItems(){
           </form>
         </div>
       </div>
-      <?php $i = $i + 3; ?>
+      <hr>
+      <?php $i = $i + 1; ?>
     <?php endwhile; ?>
   </body>
 </html>

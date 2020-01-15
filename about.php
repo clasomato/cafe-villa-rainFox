@@ -1,3 +1,61 @@
+<?php
+function getJobsItems(){
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "login";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+
+
+  $sql = "SELECT * FROM jobs";
+
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+      $rows = [];
+      while($row = mysqli_fetch_array($result)) {
+          $rows[] = $row;
+      }
+      return $rows;
+  }
+};
+
+
+
+function getNumberOfJobsItems(){
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "login";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+
+
+  $sql = "SELECT * FROM jobs";
+
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // var_dump($result);
+    // var_dump(array($result));
+    return mysqli_num_rows($result);
+  }
+};
+
+
+ ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -139,17 +197,19 @@
       <br>
 
       <h2 style="font-size: 2em;">Job Openings</h2>
-      <p>
-        <strong>Trained Barista (2019)<br></strong>
-        We are looking for a trained barista with perferably 3 years of experience.
-       </p>
+      <?php
+        $i = 0;
+        $items = getJobsItems();
+        while ($i < getNumberOfJobsItems()):
+      ?>
+        <?php $item = $items[$i]; ?>
+        <p> <strong style="font-size: 1.5em;"><?php echo $item['position'] ?></strong> <br>
+          <?php echo $item['description'] ?>
+        </p>
 
-       <hr>
-
-       <p>
-         <strong>Waiter (2020)<br></strong>
-         We are currently looking for a new set of waiters for 2020 as some of our staff are leaving.
-       </p>
+        <hr>
+        <?php $i = $i + 1; ?>
+      <?php endwhile; ?>
 
        <div class="center">
          <?php include 'get-in-touch.html' ?>
