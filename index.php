@@ -229,22 +229,24 @@
         recipes and menu items.
       </p>
 
-      <?php include "mosCol.html" ?>
     </article>
 
 
     <div class="indexCollum2">
-      <h2 class="center" style="font-size: 2em; line-height: 0.1em;">Quote of the Day</h2>
-      <h3 class="center quote-of-the-day"> <?php $sql = "SELECT quote FROM quotes";
-      $result = $conn->query($sql);
+      <div class="quote-day">
+        <h2 class="center" style="font-size: 2em; display: inherit;">Quote of the Day</h2>
+        <h3 class="quote-of-the-day"> <?php $sql = "SELECT quote FROM quotes";
+        $result = $conn->query($sql);
 
-      if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-              echo $row["quote"];
-          }
-      } ?> </h3>
-      <hr style="margin-bottom: 1.6em;">
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo $row["quote"];
+            }
+        } ?> </h3>
+      </div>
+
+      <!-- <hr style="margin-bottom: 1.6em;"> -->
       <div class="location">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d512.6164235245642!2d174.77424871609506!3d-41.24768394493158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d38ae021e9fde63%3A0x7e428be96eb1f47f!2sCafe%20Villa!5e0!3m2!1sen!2snz!4v1574049143522!5m2!1sen!2snz" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         <h3 class="center">

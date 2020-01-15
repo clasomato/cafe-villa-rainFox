@@ -68,6 +68,13 @@ body {
             box-shadow: 0px 2px 0px 0px white;
         }
 
+
+        @media only screen and (max-width: 990px) {
+          .desktopNav {
+            display: none;
+          }
+        }
+
         /* Extra small devices (phones, 600px and down) */
         @media only screen and (max-width: 600px) {
           .desktopNav {
@@ -75,7 +82,7 @@ body {
           }
 
           .nav-container {
-            height: 9vh; 
+            height: 9vh;
           }
 
           .navLogo {
@@ -409,6 +416,12 @@ span::selection { background: #B71041; color: white; }
   overflow: auto;
 }
 
+@media only screen and (max-width: 600px) {
+  .indexContainer {
+    width: 90%;
+  }
+}
+
 .indexCollum1 {
   float: left;
   width: 55%;
@@ -477,7 +490,8 @@ span::selection { background: #B71041; color: white; }
 /* Mobile Optimization */
 @media screen and (max-width: 600px) {
   .indexContainer {
-    width: 90%;
+    width: 95%;
+    overflow: hidden;
   }
 
   .splash2 {
