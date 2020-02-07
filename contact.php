@@ -105,7 +105,7 @@
       04 479 5707
     </p>
 
-    <form class="" action="index.html" method="post">
+    <form class="" action="https://formspree.io/xqkqqypn" method="post">
       <input style="outline: 1px solid #B71041;" type="text" name="firstname" value="" placeholder="  Name"><br>
       <input style="outline: 1px solid #B71041;" type="text" name="email" value="" placeholder="  Email"><br>
       <input style="outline: 1px solid #B71041;" type="text" name="number" value="" placeholder="  Phone Number"><br>

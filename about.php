@@ -168,7 +168,7 @@ function getNumberOfJobsItems(){
   <div class="indexContainer">
     <div class="indexCollum1">
 
-<?php include "mosCol.html" ?>
+<!--  -->
 
       <p>
         <strong>Cafe Villa</strong> is open for breakfast, brunch and lunch Monday to Friday from 8.30am  to 4.00pm and
